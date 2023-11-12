@@ -5,6 +5,10 @@ const STORAGE_KEY = 'todos';
 export default createStore({
   state: {
     todos: JSON.parse(localStorage.getItem(STORAGE_KEY)) || [],
+    searchFilter: {
+      category: 'title',
+      term: '',
+    },
   },
   mutations: {
     SET(state, todos) {
@@ -23,6 +27,9 @@ export default createStore({
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state.todos));
       }
     },
+    SET_SEARCH_FILTER(state, { category, term }) {
+      state.searchFilter = { category, term };
+    },
   },
   actions: {
     async ADD({ commit }, newTodo) {
@@ -38,5 +45,27 @@ export default createStore({
   },
   getters: {
     todos: state => state.todos,
+    filteredTodos: state => {
+      const { category, term } = state.searchFilter;
+
+      if (!term) {
+        return state.todos;
+      }
+
+      return state.todos.filter(todo => {
+        switch (category) {
+          case 'title':
+            return todo.title.includes(term);
+          case 'description':
+            return todo.description.includes(term);
+          case 'status':
+            return todo.status.includes(term);
+          case 'date':
+            return todo.date.includes(term);
+          default:
+            return false;
+        }
+      });
+    },
   },
 });

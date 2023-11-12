@@ -1,21 +1,19 @@
 <template>
   <ul :class="$style['list-container']">
-    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
+    <TodoItem v-for="todo in filteredTodos" :key="todo.id" :todo="todo" />
   </ul>
 </template>
 
 <script>
 import TodoItem from '@/components/todo/TodoItem.vue';
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     TodoItem,
   },
   computed: {
-    ...mapState({
-      todos: 'todos',
-    }),
+    ...mapGetters(['filteredTodos']),
   },
 };
 </script>
