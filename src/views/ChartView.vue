@@ -1,6 +1,5 @@
 <template>
-  <h1>chart</h1>
-  <LineChart :data="todoData" />
+  <LineChart :data="todoData" class="chart-container" />
   <DonutChart :data="todoData" />
 </template>
 
@@ -21,3 +20,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.chart-container {
+  margin-bottom: 20px;
+}
+</style>

@@ -1,6 +1,5 @@
 <template>
-  <h1>todo</h1>
-  <TodoAddBtn />
+  <TodoAddBtn class="btn-add-container" />
   <TodoList />
 </template>
 
@@ -15,3 +14,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.btn-add-container {
+  margin-bottom: 20px;
+}
+</style>

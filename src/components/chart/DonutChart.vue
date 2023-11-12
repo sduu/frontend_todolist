@@ -11,7 +11,6 @@ export default {
     statusData: [],
   },
   mounted() {
-    console.log('Todo Data in DonutChart:', this.data);
     this.drawChart();
   },
   data() {
@@ -91,18 +90,18 @@ export default {
       legendGroup
         .selectAll()
         .data(statusData)
-        .join('rect')
+        .join('circle')
         .attr('fill', d => color(d.status))
-        .attr('y', (d, i) => i * 20)
-        .attr('width', 12)
-        .attr('height', 12);
+        .attr('r', 6)
+        .attr('cx', 6)
+        .attr('cy', (d, i) => i * 20);
 
       legendGroup
         .selectAll()
         .data(statusData)
         .join('text')
         .attr('x', 20)
-        .attr('y', (d, i) => i * 20 + 10)
+        .attr('y', (d, i) => i * 20 + 4)
         .text(d => `${d.status} ${d.count}개`);
     },
   },
