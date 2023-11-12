@@ -27,8 +27,8 @@
     </div>
 
     <div :class="$style['util-container']">
-      <button :class="$style['btn-confirm']" @click="addTodo">추가 완료</button>
-      <!-- <button :class="$style['btn-confirm']" @click="updateTodo">수정 완료</button> -->
+      <button :class="$style['btn-confirm']" v-if="!isEditing" @click="addTodo">추가 완료</button>
+      <button :class="$style['btn-confirm']" v-if="isEditing" @click="updateTodo">수정 완료</button>
       <button :class="$style['btn-cancel']" @click="cancelAdd">취소</button>
     </div>
   </div>
@@ -47,9 +47,9 @@ export default {
     return {
       title: '',
       description: '',
-      showDatePicker: false,
       date: null,
       status: '진행전',
+      isEditing: false,
     };
   },
   computed: {
@@ -67,15 +67,13 @@ export default {
           this.description = newTodo.description || '';
           this.date = newTodo.date || null;
           this.status = newTodo.status || '진행전';
+          this.isEditing = true;
         }
       },
     },
   },
   components: { VueDatePicker },
   methods: {
-    toggleDatePicker() {
-      this.showDatePicker = !this.showDatePicker;
-    },
     addTodo() {
       this.$store.dispatch('ADD', {
         title: this.title,
@@ -102,9 +100,6 @@ export default {
       this.$store.dispatch('UPDATE', modifiedTodo);
 
       this.$emit('modify');
-    },
-    deleteTodo(todoId) {
-      this.$store.dispatch('REMOVE', todoId);
     },
     cancelAdd() {
       this.$emit('cancel');
@@ -171,7 +166,7 @@ export default {
 
 .util-container .btn-confirm {
   color: #fff;
-  border-color: var(--primary-color);
+  border-color: var(--secondary-color);
   background-color: var(--secondary-color);
 }
 .util-container .btn-cancel {
