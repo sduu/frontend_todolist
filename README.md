@@ -1,24 +1,16 @@
 # frontend-todolist
 
-## Project setup
+## 데모 링크
+https://65515dcc4389ab5b880f57a1--serene-pithivier-71c65e.netlify.app/
+
+## 프로젝트 실행 방법
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 미리보기
+![image](https://github.com/sduu/frontend_todolist/assets/46313348/324e56ff-808e-47d3-ac46-fce23dac9f80)
 
-### Lints and fixes files
-```
-npm run lint
-```
+![image](https://github.com/sduu/frontend_todolist/assets/46313348/604fa57a-a0b6-450e-a629-e91fd0f8410c)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
