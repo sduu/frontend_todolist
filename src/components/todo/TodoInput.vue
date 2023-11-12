@@ -129,6 +129,8 @@ export default {
 .input-container select {
   width: 100%;
   height: 100%;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
   font-family: inherit;
   font-size: 16px;
 }
