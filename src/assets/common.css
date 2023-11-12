@@ -1,0 +1,25 @@
+:root {
+  --primary-color: #0d2960;
+  --secondary-color: #0078d4;
+  --border-bold: #8a8886;
+  --border-light: #ddd;
+  --main-text: #201f1e;
+  --sub-text: #605e5c;
+}
+
+body {
+  margin: 0;
+  font-size: 62.5%;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  padding: 48px;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--primary-color);
+}
+
+input {
+  border: 1px solid var(--border-bold);
+}
