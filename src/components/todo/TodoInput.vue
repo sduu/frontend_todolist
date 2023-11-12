@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style['input-container']">
+  <div :class="$style['input-container']" v-if="visible">
     <div>
       <label for="title">제목</label>
       <input type="text" id="title" placeholder="제목을 입력하세요" v-model="title" />
@@ -134,6 +134,7 @@ export default {
 .input-container select {
   width: 100%;
   height: 100%;
+  font-family: inherit;
   font-size: 16px;
 }
 
@@ -163,13 +164,15 @@ export default {
   border-style: solid;
   padding: 8px;
   border-radius: 4px;
+  font-family: inherit;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .util-container .btn-confirm {
   color: #fff;
   border-color: var(--primary-color);
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
 }
 .util-container .btn-cancel {
   border-color: var(--border-bold);

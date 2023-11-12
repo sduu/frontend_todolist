@@ -1,14 +1,14 @@
 <template>
   <h1>todo</h1>
-  <TodoInput />
+  <TodoAddBtn />
 </template>
 
 <script>
-import TodoInput from '@/components/todo/TodoInput.vue';
+import TodoAddBtn from '@/components/todo/TodoAddBtn.vue';
 
 export default {
   components: {
-    TodoInput,
+    TodoAddBtn,
   },
 };
 </script>
